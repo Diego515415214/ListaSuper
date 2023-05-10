@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title= "Lista de súper"
+             x:Class="ListaSuper.Vista.HomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Clicked="ToolbarItem_Clicked"/>
+        
+    </ContentPage.ToolbarItems>
+    
+        <ContentPage.Content>
+        <ScrollView>
+            <ListView x:Name="lista_tareas" HasUnevenRows="True" BackgroundColor="Aquamarine">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                x:Name="btn_eliminar"
+                                Text="Eliminar"
+                                IsDestructive="True"
+                                Clicked="btn_eliminar_Clicked"
+                                CommandParameter="{Binding .}"
+                                >
+                                </MenuItem>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="15,0">
+                                <Label Text="{Binding Name}" FontSize="Medium" TextColor="Red"/>
+                                <Label Text="{Binding Description}" FontSize="Medium" TextColor="{StaticResource Rosa}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>
